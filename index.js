@@ -31,20 +31,13 @@ app.use(cookieParser());
 // );
 // app.use(flash());
 
+const index = require('./routes/index');
+const Register = require('./routes/register');
+const login = require('./routes/log-in');
 
-app.get('/', (req, res) => {
-  res.render('index.ejs');
-});
+app.use('/', index);
+app.use('/', Register);
+app.use('/', login);
 
-
-// Registeren
-app.get('/registeren', (req, res) => {
-  res.render('registeren.ejs');
-});
-
-// inloggen
-app.get('/inloggen', (req, res) => {
-  res.render('inloggen.ejs');
-});
 
 app.listen(port, () => console.log(`Dating-app listening at http://localhost:${port}`));
