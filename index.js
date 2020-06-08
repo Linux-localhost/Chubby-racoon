@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongodb = require('mongodb');
-const objectId = mongodb.ObjectID;
-const flash = require('express-flash');
+// const mongodb = require('mongodb');
+// const objectId = mongodb.ObjectID;
+// const flash = require('express-flash');
 // const session = require('express-session');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
@@ -33,7 +33,7 @@ app.use(cookieParser());
 
 
 app.get('/', (req, res) => {
-  res.render('index.ejs');
+  res.render('homepagina.ejs');
 });
 
 
