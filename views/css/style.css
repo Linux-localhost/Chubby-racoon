@@ -1,5 +1,407 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    --Orangebackground: #ff3d25;
+    --Gradient: linear-gradient(-45deg, #fd297b, #FF5864, #FF655B);
+    --Navbackground: #161B21;
+    --wit: #f6f6f6;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 3em;
+    list-style-type: none;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    font-family: sans-serif;
+    /* background: var(--Gradient); */
+    background: transparent;
+    position: absolute;
+}
+
+nav button {
+    border: none;
+    text-decoration: none;
+}
+
+nav ul {
+    z-index: 9;
+    position: fixed;
+    right: 0;
+    width: 90vw;
+    list-style-type: none;
+    top: 3em;
+}
+
+nav li {
+    padding: 20px;
+    background: var(--Navbackground);
+    transition: 0.15s;
+    width: 90vw;
+    text-transform: uppercase;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+nav li:active {
+    background: var(--Orangebackground);
+    font-size: 1.1em;
+    outline: none;
+}
+
+nav ul {
+    transform: translateX(100%);
+    transition: 0.7s;
+}
+
+
+nav ul li a {
+    color: var(--wit);
+    text-decoration: none;
+    width: 100%;
+    display: block;
+}
+
+nav ul li p {
+    color: var(--wit);
+    width: 100%;
+    display: contents;
+    margin-left: 20px;
+}
+
+nav .hamburger {
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 15px;
+}
+
+nav .hamburger {
+    transform: rotate(360deg);
+    padding: 3px 2px;
+    display: inline-block;
+    background-color: transparent;
+    z-index: 1;
+
+}
+
+nav div:nth-child(2)>a:nth-child(1) {
+    display: none;
+}
+
+nav .hamburger div {
+    width: 22px;
+    height: 3px;
+    margin: 5px;
+    background-color: var(--wit);
+}
+
+.popnav {
+    transform: translateX(0%);
+
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    color: var(--wit);
+    text-decoration: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.cta {
+    position: relative;
+    height: 100vh;
+    z-index: 1;
+    text-align: center;
+    font-size: 50px;
+}
+
+.cta:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../img/CTA.jpg') no-repeat center center /cover;
+    content: '';
+    filter: brightness(60%);
+    z-index: -1;
+}
+
+
+
+.cta h1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10vw;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.18;
+    font-weight: 800;
+}
+
+.cta p {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4vw;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.cta div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta div a {
+    display: block;
+    position: absolute;
+    top: 70%;
+    background: var(--Gradient);
+    border-radius: 5px;
+    color: white;
+    padding: .5em;
+    text-decoration: none;
+    width: 80%;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .27);
+    border-radius: 100px;
+}
+
+.cta div a:nth-child(2) {
+    margin-top: 60px;
+}
+
+.cta p a {
+    color: white;
+}
+
+
+.formulier {
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.formulier::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../img/CTA.jpg') no-repeat center center /cover;
+    content: '';
+    filter: brightness(60%);
+    z-index: -1;
+}
+
+
+.formulier div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    background: white;
+    box-shadow: 0 0 10px #000000;
+}
+
+.registreren div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 38rem;
+    width: 90%;
+    background: white;
+    box-shadow: 0 0 10px #000000;
+}
+
+
+.formulier div h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.formulier form {
+    padding: 30px 15px 15px 15px;
+}
+
+.formulier form input {
+    margin-bottom: 15px;
+}
+
+
+
+.formulier form p:nth-child(4),
+.registreren div form p {
+    text-align: center;
+    font-size: 10px;
+    margin-top: 15px;
+}
+
+
+.formulier form fieldset button,
+.registreren div form button {
+    background: var(--Gradient);
+    border: none;
+    width: 100%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.formulier form fieldset a,
+.registreren div form a {
+    background: #9400D3;
+    border: none;
+    width: 100%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+
+input[type="text"],
+[type="name"],
+[type="email"],
+[type="number"],
+[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+fieldset {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    border: none;
+    min-inline-size: min-content;
+}
+
+@media screen and (min-width: 768px) {
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        background: transparent;
+    }
+
+    .logo {
+        left: 0;
+    }
+
+    nav ul {
+        width: 10vw;
+        top: 4em;
+    }
+
+    nav div:nth-child(2)>a:nth-child(1) {
+        height: auto;
+        width: auto;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 80px;
+        display: block;
+        position: absolute;
+        background: var(--Gradient);
+        border-radius: 5px;
+        color: white;
+        padding: .5em;
+        text-decoration: none;
+        width: 6%;
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .cta h1 {
+        font-size: 80px;
+    }
+
+    .cta p {
+        font-size: 20px;
+    }
+
+    .cta div a {
+        width: 30%;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .cta:before,
+    .formulier:before {
+        background-position: calc(20% - 0px) calc(25% - 10px);
+    }
+
+    .formulier div {
+        height: 26em;
+        width: 30%;
+        background: white;
+        box-shadow: 0 0 10px #000000;
+    }
+
+    .registreren div {
+        height: 38em;
+    }
+
+    .formulier form p:nth-child(4),
+    .registreren div form p {
+        margin-top: 20px;
+        font-size: 15px;
+    }
+
 }
