@@ -11,7 +11,7 @@ require('dotenv').config();
 const app = express();
 const port = 3000; // 3000
 
-
+app.use(require('./routes/router'))
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
@@ -31,13 +31,6 @@ app.use(cookieParser());
 // );
 // app.use(flash());
 
-const index = require('./routes/index');
-const Register = require('./routes/register');
-const login = require('./routes/log-in');
-
-app.use('/', index);
-app.use('/', Register);
-app.use('/', login);
 
 
 app.listen(port, () => console.log(`Dating-app listening at http://localhost:${port}`));
