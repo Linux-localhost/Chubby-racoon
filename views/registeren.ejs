@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <%- include('includes/nav'); -%>
+    <!-- including nav.ejs-->
+
+    <main>
+        <!--Registeren-->
+        <section class="formulier registreren">
+            <div>
+                <h2>Registeren</h2>
+                <form action=/register method=post>
+                    <fieldset>
+                        <legend>naam</legend>
+                        <input type="name" id="name" name="name" required>
+                        <legend>email</legend>
+                        <input type="email" id="email" name="email" required>
+                        <legend>wachtwoord</legend>
+                        <input type="password" id="password" name="password" required>
+                        <legend>herhaling wachtwoord</legend>
+                        <input type="password" id="password" name="password_repeat" required>
+                        <legend>bevestigen</legend>
+                        <button type="submit">Registeren</button>
+                        <p>Al een bestaand account?</p>
+                        <a href="inloggen">Login</a>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <%- include('includes/footer'); -%>
+    <!-- including footer.ejs-->
+
+</body>
+
+</html>

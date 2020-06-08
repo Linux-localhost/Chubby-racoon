@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
+    <%- include('includes/nav'); -%> <!-- including nav.ejs-->
+
     <main>
-        <h1>testing</h1>
+        <!--Call to action-->
+        <section class="cta">
+            <h1>Match. Chat. Date</h1>
+            <p>op login te klikken, ga je akkoord met onze <a href="#">voorwaarden</a>.</p>
+            <div>
+                <a href="./inloggen">Inloggen</a>
+                <a href="./registeren">Registreren</a>
+            </div>
+        </section>
     </main>
+
+    <%- include('includes/footer'); -%> <!-- including footer.ejs-->
+
 </body>
 </html>

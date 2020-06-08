@@ -33,8 +33,18 @@ app.use(cookieParser());
 
 
 app.get('/', (req, res) => {
-  res.render('homepagina.ejs');
+  res.render('index.ejs');
 });
 
+
+// Registeren
+app.get('/registeren', (req, res) => {
+  res.render('registeren.ejs');
+});
+
+// inloggen
+app.get('/inloggen', (req, res) => {
+  res.render('inloggen.ejs');
+});
 
 app.listen(port, () => console.log(`Dating-app listening at http://localhost:${port}`));

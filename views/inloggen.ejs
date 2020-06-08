@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <%- include('includes/nav'); -%> 
+
+    <main>
+        <!--inloggen-->
+        <section class="formulier inloggen">
+            <div>
+                <h2>Inloggen</h2>
+                <form method="POST" action="/login">
+                    <fieldset>
+                        <legend>email</legend>
+                        <input type="email" id="email" name="email"  required>
+                        <legend>Wachtwoord</legend>
+                        <input type="password" id="password" name="password"  required>
+                        <legend>bevestingen</legend>
+                        <button type="submit">Login</button>
+                        <p>Nog geen account?</p>
+                        <a href="registeren">maak een account</a>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <%- include('includes/footer'); -%> <!-- including footer.ejs-->
+</body>
+
+</html>
