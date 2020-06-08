@@ -11,7 +11,7 @@ require('dotenv').config();
 const app = express();
 const port = 3000; // 3000
 
-
+app.use(require('./routes/router'))
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
@@ -32,19 +32,5 @@ app.use(cookieParser());
 // app.use(flash());
 
 
-app.get('/', (req, res) => {
-  res.render('index.ejs');
-});
-
-
-// Registeren
-app.get('/registeren', (req, res) => {
-  res.render('registeren.ejs');
-});
-
-// inloggen
-app.get('/inloggen', (req, res) => {
-  res.render('inloggen.ejs');
-});
 
 app.listen(port, () => console.log(`Dating-app listening at http://localhost:${port}`));
