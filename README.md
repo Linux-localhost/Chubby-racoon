@@ -5,12 +5,15 @@
 ## Team
 
 Mike Hovenier
-_[Github](https://github.com/mikehov)_
+
+_[Github](https://github.com/mikehov)_ 
 
 Rosa Voogd
+
 _[Github](https://github.com/rosavoogd)_
 
 Rowin Danilo Ruizendaal
+
 _[Primary](https://github.com/rowinruizendaal)_  ||  _[Secondary](https://github.com/linux-localhost)_ 
 
 
