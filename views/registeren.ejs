@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Dating app | Register</title>
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/favicon.png"/>
 </head>
 
 <body>
@@ -16,20 +17,20 @@
         <!--Registeren-->
         <section class="formulier registreren">
             <div>
-                <h2>Registeren</h2>
+                <h2>Create account</h2>
                 <form action=/register method=post>
                     <fieldset>
-                        <legend>naam</legend>
+                        <legend>Fullname: *</legend>
                         <input type="name" id="name" name="name" required>
-                        <legend>email</legend>
+                        <legend>Email: *</legend>
                         <input type="email" id="email" name="email" required>
-                        <legend>wachtwoord</legend>
+                        <legend>Password: *</legend>
                         <input type="password" id="password" name="password" required>
-                        <legend>herhaling wachtwoord</legend>
+                        <legend>Repeat password: *</legend>
                         <input type="password" id="password" name="password_repeat" required>
-                        <legend>bevestigen</legend>
+                        <!-- <legend>Confirm</legend> -->
                         <button type="submit">Registeren</button>
-                        <p>Al een bestaand account?</p>
+                        <p>Already have an account?</p>
                         <a href="inloggen">Login</a>
                     </fieldset>
                 </form>

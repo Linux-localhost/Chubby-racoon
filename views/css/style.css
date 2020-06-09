@@ -5,10 +5,14 @@
 }
 
 body {
-    --Orangebackground: #ff3d25;
-    --Gradient: linear-gradient(-45deg, #fd297b, #FF5864, #FF655B);
-    --Navbackground: #161B21;
-    --wit: #f6f6f6;
+    --maincolor: #BF636B;
+    --maincolor-light: #D99A9F;
+    --secondcolor: #145959;
+    --secondcolor-light: #1D7373;
+    --thirdcolor: #A64646;
+    --white: #FFFFFF;
+    --black: #333;
+    --gray: #A3A3A3;
 }
 
 
@@ -116,7 +120,7 @@ nav .hamburger div {
 .logo {
     position: absolute;
     top: 0;
-    color: var(--wit);
+    color: var(--white);
     text-decoration: none;
     margin-top: 10px;
     margin-left: 10px;
@@ -154,7 +158,7 @@ nav .hamburger div {
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: var(--white);
     font-size: 10vw;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.18;
@@ -163,10 +167,10 @@ nav .hamburger div {
 
 .cta p {
     position: absolute;
-    top: 60%;
+    bottom: 25px;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: var(--white);
     font-size: 4vw;
     font-family: 'Montserrat', sans-serif;
 }
@@ -183,9 +187,9 @@ nav .hamburger div {
     display: block;
     position: absolute;
     top: 70%;
-    background: var(--Gradient);
+    background: var(--thirdcolor);
     border-radius: 5px;
-    color: white;
+    color: var(--white);
     padding: .5em;
     text-decoration: none;
     width: 80%;
@@ -193,6 +197,11 @@ nav .hamburger div {
     font-family: 'Montserrat', sans-serif;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .27);
     border-radius: 100px;
+    transition: 0.3s ease;
+}
+
+.cta div a:hover {
+    background-color: var(--maincolor-light);
 }
 
 .cta div a:nth-child(2) {
@@ -200,7 +209,7 @@ nav .hamburger div {
 }
 
 .cta p a {
-    color: white;
+    color: var(--white);
 }
 
 
@@ -229,7 +238,7 @@ nav .hamburger div {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    background: white;
+    background: var(--white);
     box-shadow: 0 0 10px #000000;
 }
 
@@ -238,25 +247,34 @@ nav .hamburger div {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 38rem;
+    /* height: 38rem; */
     width: 90%;
-    background: white;
+    background: var(--white);
     box-shadow: 0 0 10px #000000;
 }
 
 
 .formulier div h2 {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 1.65em;
+    color: var(--black);
 }
 
 .formulier form {
-    padding: 30px 15px 15px 15px;
+    padding: 30px 15px 20px 15px;
 }
 
 .formulier form input {
     margin-bottom: 15px;
+    color: var(--black);
+    padding: 12px;
 }
+
+/* The input fields need to be gray normally and red if you made a mistake, but it ain't working yet. */
+/* .formulier form input:invalid {
+    border: var(--maincolor) solid 1px;
+} */
 
 
 
@@ -270,10 +288,10 @@ nav .hamburger div {
 
 .formulier form fieldset button,
 .registreren div form button {
-    background: var(--Gradient);
+    background: var(--maincolor);
     border: none;
     width: 100%;
-    color: white;
+    color: var(--white);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -281,14 +299,20 @@ nav .hamburger div {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.formulier form fieldset button:hover,
+.registreren div form button:hover {
+    background: var(--maincolor-light);
 }
 
 .formulier form fieldset a,
 .registreren div form a {
-    background: #9400D3;
+    /* background: var(--maincolor);
     border: none;
     width: 100%;
-    color: white;
+    color: var(--white);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -296,7 +320,22 @@ nav .hamburger div {
     font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
+    transition: 0.3s ease; */
+
+    width: 100%;
+    color: var(--maincolor);
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    transition: 0.3s ease;
 }
+
+/* .formulier form fieldset a:hover,
+.registreren div form a:hover {
+    background: var(--maincolor-light)
+} */
 
 
 
@@ -327,6 +366,10 @@ fieldset {
     min-inline-size: min-content;
 }
 
+legend {
+    color: var(--black);
+}
+
 @media screen and (min-width: 768px) {
 
     nav {
@@ -355,17 +398,22 @@ fieldset {
         cursor: pointer;
         position: fixed;
         top: 10px;
-        right: 80px;
+        right: 10px;
         display: block;
         position: absolute;
-        background: var(--Gradient);
+        background: var(--secondcolor);
         border-radius: 5px;
-        color: white;
-        padding: .5em;
+        color: var(--white);
+        padding: 10px 15px;
         text-decoration: none;
-        width: 6%;
-        font-size: 20px;
+        font-size: 16px;
         font-family: 'Montserrat', sans-serif;
+        box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .9);
+        transition: 0.3s ease;
+    }
+
+    nav div:nth-child(2)>a:nth-child(1):hover {
+        background: var(--secondcolor-light);
     }
 
     .cta h1 {
@@ -373,7 +421,7 @@ fieldset {
     }
 
     .cta p {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .cta div a {
@@ -388,20 +436,19 @@ fieldset {
     }
 
     .formulier div {
-        height: 26em;
-        width: 30%;
-        background: white;
+        /* height: 26em; */
+        width: 40%;
+        background: var(--white);
         box-shadow: 0 0 10px #000000;
     }
 
-    .registreren div {
-        height: 38em;
-    }
-
     .formulier form p:nth-child(4),
-    .registreren div form p {
+    .registreren div form p, 
+    .inloggen form fieldset p {
         margin-top: 20px;
         font-size: 15px;
+        color: var(--gray);
+        text-align: center;
     }
 
 }
