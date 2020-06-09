@@ -6,16 +6,7 @@ const mongodb = require('mongodb');
 const objectId = mongodb.ObjectID;
 const db = require('./helper/database');
 
-
-
-
-
-
 const app = express();
-const port = process.env.PORT || 3000; // 3000
-
-
-
 
 app.use(require('./routes/router'));
 app.use(bodyParser.urlencoded({

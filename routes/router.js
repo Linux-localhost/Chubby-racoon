@@ -9,11 +9,11 @@ const register = require('./register');
 const users = require('./users');
 
 
-//Make routes
+// Make routes
 router.use('/', homepage);
 router.use('/', login);
 router.use('/', register);
 router.use('/', users);
 
 
-module.exports = router;    
+module.exports = router;
