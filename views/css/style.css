@@ -43,7 +43,7 @@ nav {
     flex-wrap: wrap;
     height: 3em;
     list-style-type: none;
-    top: 0;
+    /* top: 0; */
     left: 0;
     z-index: 10;
     /* background: var(--Gradient); */
@@ -203,13 +203,13 @@ nav .hamburger div {
     display: block;
     position: absolute;
     top: 70%;
-    background: var(--thirdcolor);
+    background: var(--maincolor);
     border-radius: 5px;
     color: var(--white);
     padding: .5em;
     text-decoration: none;
     width: 80%;
-    font-size: 20px;
+    font-size: 16px;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .27);
     border-radius: 100px;
     transition: 0.3s ease;
@@ -349,6 +349,11 @@ nav .hamburger div {
     transition: 0.3s ease;
 }
 
+.formulier form fieldset a:hover,
+.registreren div form a:hover {
+    color: var(--secondcolor-second);
+}
+
 /* .formulier form fieldset a:hover,
 .registreren div form a:hover {
     background: var(--maincolor-second)
@@ -438,14 +443,76 @@ section.fullphoto-person img {
 
 /* ------------- Likenav ----------------- */
 
-nav.bottombar {
+section.likebar {
     width: 100vw;
     height: 5em;
     position: fixed;
     bottom: 0;
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
+section.likebar ul {
+    width: 100vw;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+section.likebar li {
+    width: 6em;
+    height: 5em;
+    display: inline-block;
+    bottom: 0;
+    position: absolute;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+}
+
+section.likebar li:first-child {
+    background-color: var(--maincolor);
+    left: 0;
+    border-radius: 0px 70% 0px 0px;
+}
+
+section.likebar li:nth-child(2) {
+    background-color: var(--thirdcolor);
+    margin: auto auto;
+    border-radius: 50% 50% 0px 0px;
+}
+
+section.likebar li:nth-child(3) {
+    background-color: var(--secondcolor);
+    right: 0;
+    border-radius: 70% 0px 0px 0px;
+}
+
+section.likebar button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: none;
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+
+/* ------------- Icons ---------------- */
+
+.cross-icon,
+.star-icon,
+.hearth-icon {
+    width: 30px;
+    height: auto;
+    display: inline-block;
+    fill: var(--white);
+    position: absolute;
+    margin-top: 30px;
+}
 
 
 /* ------------- Media-query ----------------- */
@@ -505,7 +572,7 @@ nav.bottombar {
 
     .cta div a {
         width: 30%;
-        font-size: 20px;
+        font-size: 16px;
         padding: 10px;
     }
 
