@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../helper/database');
 
 // Pages required
 const homepage = require('./index');

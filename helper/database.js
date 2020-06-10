@@ -3,7 +3,7 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${p
 let mongodb;
 
 function connect(callback) {
-  mongoClient.connect(uri, { useUnifiedTopology: true }, (err, client) => {
+  mongoClient.connect(uri, {useUnifiedTopology: true}, (err, client) => {
     mongodb = client.db(process.env.DB_NAME);
     callback();
   });
