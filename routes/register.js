@@ -37,6 +37,7 @@ router.post('/register', (req, res) => {
       console.log(`A new user has registered #awesome! : ${req.body.email}`);
       res.redirect('/inloggen');
     } else {
+      console.log('Passwords are not the same');
       res.redirect('/registeren');
     }
   });

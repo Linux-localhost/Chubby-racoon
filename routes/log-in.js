@@ -20,7 +20,7 @@ router.post('/login', (req, res) => {
       req.session.user = result;
       console.log(req.session.user);
       req.session.save(function(err) {
-        res.redirect('/profile');
+        res.redirect('/swipe');
       });
     } else {
       console.log('Account not found');
