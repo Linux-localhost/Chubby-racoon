@@ -18,7 +18,6 @@ router.post('/login', (req, res) => {
     if (err) console.log(err);
     if (result) {
       req.session.user = result;
-      console.log(req.session.user);
       req.session.save(function(err) {
         res.redirect('/swipe');
       });
