@@ -5,16 +5,35 @@
 }
 
 body {
-    --maincolor: #BF636B;
-    --maincolor-light: #D99A9F;
-    --secondcolor: #145959;
-    --secondcolor-light: #1D7373;
-    --thirdcolor: #A64646;
+    --maincolor: #E83548;
+    --maincolor-second: #AB1F30;
+    --secondcolor: #1E8CC9;
+    --secondcolor-second: #51C5ED;
+    --thirdcolor: #820CE8;
     --white: #FFFFFF;
     --black: #333;
     --gray: #A3A3A3;
 }
 
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: Bold;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: Medium;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: Regular;
+}
+
+p, a, button, legend {
+    font-family: 'Roboto', sans-serif;
+    font-weight: Regular;
+}
 
 nav {
     display: flex;
@@ -27,7 +46,6 @@ nav {
     top: 0;
     left: 0;
     z-index: 10;
-    font-family: sans-serif;
     /* background: var(--Gradient); */
     background: transparent;
     position: absolute;
@@ -53,7 +71,7 @@ nav li {
     transition: 0.15s;
     width: 90vw;
     text-transform: uppercase;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
 
@@ -160,7 +178,6 @@ nav .hamburger div {
     transform: translate(-50%, -50%);
     color: var(--white);
     font-size: 10vw;
-    font-family: 'Montserrat', sans-serif;
     line-height: 1.18;
     font-weight: 800;
 }
@@ -172,7 +189,6 @@ nav .hamburger div {
     transform: translate(-50%, -50%);
     color: var(--white);
     font-size: 4vw;
-    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -194,14 +210,13 @@ nav .hamburger div {
     text-decoration: none;
     width: 80%;
     font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .27);
     border-radius: 100px;
     transition: 0.3s ease;
 }
 
 .cta div a:hover {
-    background-color: var(--maincolor-light);
+    background-color: var(--maincolor-second);
 }
 
 .cta div a:nth-child(2) {
@@ -210,12 +225,15 @@ nav .hamburger div {
 
 .cta p a {
     color: var(--white);
+    transition: 0.3s ease;
 }
 
+.cta p a:hover {
+    color: var(--maincolor);
+}
 
 .formulier {
     min-height: 100vh;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .formulier::before {
@@ -262,7 +280,7 @@ nav .hamburger div {
 }
 
 .formulier form {
-    padding: 30px 15px 20px 15px;
+    padding: 30px 25px 20px 25px;
 }
 
 .formulier form input {
@@ -304,7 +322,7 @@ nav .hamburger div {
 
 .formulier form fieldset button:hover,
 .registreren div form button:hover {
-    background: var(--maincolor-light);
+    background: var(--maincolor-second);
 }
 
 .formulier form fieldset a,
@@ -323,8 +341,7 @@ nav .hamburger div {
     transition: 0.3s ease; */
 
     width: 100%;
-    color: var(--maincolor);
-    font-weight: 500;
+    color: var(--secondcolor);
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -334,7 +351,7 @@ nav .hamburger div {
 
 /* .formulier form fieldset a:hover,
 .registreren div form a:hover {
-    background: var(--maincolor-light)
+    background: var(--maincolor-second)
 } */
 
 
@@ -369,6 +386,69 @@ fieldset {
 legend {
     color: var(--black);
 }
+
+/* ------------- Swipe page ----------------- */
+
+section.fullphoto-person {
+    width: 100vw;
+    height: 100vh;
+}
+
+section.fullphoto-person .person-information {
+    text-align: center;
+    top: 5em;
+    left: 0;
+    right: 0;
+    margin: auto auto;
+    position: absolute;
+}
+
+section.fullphoto-person img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: absolute;
+}
+
+.person-information h2 {
+    font-size: 2em;
+    color: var(--maincolor);
+    text-shadow: 1px 3px 6px rgb(51, 51, 51, 0.35);
+    margin-bottom: 5px;
+}
+
+.person-information p {
+    color: var(--white);
+    text-shadow: 1px 3px 6px rgb(51, 51, 51, 0.6);
+}
+
+.person-information div {
+    margin-top: 0.7em;
+}
+
+.person-information div p {
+    color: var(--secondcolor);
+    background-color: var(--white);
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 5px;
+    text-shadow: none;
+    margin: 0px 3px 0px 3px;
+}
+
+/* ------------- Likenav ----------------- */
+
+nav.bottombar {
+    width: 100vw;
+    height: 5em;
+    position: fixed;
+    bottom: 0;
+    background-color: red;
+}
+
+
+
+/* ------------- Media-query ----------------- */
 
 @media screen and (min-width: 768px) {
 
@@ -407,13 +487,12 @@ legend {
         padding: 10px 15px;
         text-decoration: none;
         font-size: 16px;
-        font-family: 'Montserrat', sans-serif;
         box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .9);
         transition: 0.3s ease;
     }
 
     nav div:nth-child(2)>a:nth-child(1):hover {
-        background: var(--secondcolor-light);
+        background: var(--secondcolor-second);
     }
 
     .cta h1 {
@@ -439,6 +518,7 @@ legend {
         /* height: 26em; */
         width: 40%;
         background: var(--white);
+        border-bottom: 10px solid var(--secondcolor);
         box-shadow: 0 0 10px #000000;
     }
 
