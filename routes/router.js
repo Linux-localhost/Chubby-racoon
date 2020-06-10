@@ -25,6 +25,7 @@ const homepage = require('./index');
 const login = require('./log-in');
 const register = require('./register');
 const users = require('./users');
+const swipe = require('./swipe');
 
 
 // Make routes
@@ -32,6 +33,7 @@ router.use('/', homepage);
 router.use('/', login);
 router.use('/', register);
 router.use('/', users);
+router.use('/', swipe);
 
 
 module.exports = router;
