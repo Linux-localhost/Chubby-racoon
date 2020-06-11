@@ -10,6 +10,7 @@ body {
     --secondcolor: #1E8CC9;
     --secondcolor-second: #51C5ED;
     --thirdcolor: #820CE8;
+    --thirdcolor-second: #750CCF;
     --white: #FFFFFF;
     --black: #333;
     --gray: #A3A3A3;
@@ -470,24 +471,41 @@ section.likebar li {
     text-decoration: none;
     text-align: center;
     display: flex;
+    transition: 0.3s ease;
 }
 
 section.likebar li:first-child {
     background-color: var(--maincolor);
     left: 0;
-    border-radius: 0px 70% 0px 0px;
+    border-radius: 35px 90% 35px 0px;
+}
+
+section.likebar li:first-child:hover {
+    background-color: var(--maincolor-second);
+    transform: scale(1.2);
 }
 
 section.likebar li:nth-child(2) {
     background-color: var(--thirdcolor);
-    margin: auto auto;
-    border-radius: 50% 50% 0px 0px;
+    border-radius: 4em 4em 15px 15px;
+    width: 8em;
+    height: 4em;
+}
+
+section.likebar li:nth-child(2):hover {
+    background-color: var(--thirdcolor-second);
+    transform: scale(1.2);
 }
 
 section.likebar li:nth-child(3) {
     background-color: var(--secondcolor);
     right: 0;
-    border-radius: 70% 0px 0px 0px;
+    border-radius: 90% 35px 0px 35px;
+}
+
+section.likebar li:nth-child(3):hover {
+    background-color: var(--secondcolor-second);
+    transform: scale(1.2);
 }
 
 section.likebar button {
@@ -512,6 +530,14 @@ section.likebar button {
     fill: var(--white);
     position: absolute;
     margin-top: 30px;
+}
+
+.cross-icon {
+    width: 25px;
+}
+
+.star-icon {
+    bottom: 10px;
 }
 
 
