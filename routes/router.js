@@ -1,14 +1,16 @@
+require('dotenv').config();
+const flash = require('express-flash');
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-router.use(bodyParser.urlencoded({
-  extended: true,
-}));
-require('dotenv').config();
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
+router.use(flash());
 router.use(cookieParser());
+router.use(bodyParser.urlencoded({
+  extended: true,
+}));
 router.use(
     session({
       secret: process.env.SECRET,

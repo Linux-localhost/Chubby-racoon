@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const db = require('./helper/database');
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-app.use(cookieParser());
 
 
 db.connect(() => {

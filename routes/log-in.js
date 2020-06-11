@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../helper/database');
 
+
 router.get('/inloggen', (req, res) => {
   res.render('inloggen.ejs');
 });
@@ -22,7 +23,7 @@ router.post('/login', (req, res) => {
         res.redirect('/swipe');
       });
     } else {
-      console.log('Account not found');
+      req.flash('error', 'Account not found please try again');
       res.redirect('/inloggen');
     }
   });

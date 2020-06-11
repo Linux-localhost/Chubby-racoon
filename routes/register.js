@@ -34,10 +34,11 @@ router.post('/register', (req, res) => {
         'picture': 'stock.png',
         'likes': {},
       });
+      req.flash('succes', 'Your account has been made please log in');
       console.log(`A new user has registered #awesome! : ${req.body.email}`);
       res.redirect('/inloggen');
     } else {
-      console.log('Passwords are not the same');
+      req.flash('error', 'Passwords are not the same');
       res.redirect('/registeren');
     }
   });

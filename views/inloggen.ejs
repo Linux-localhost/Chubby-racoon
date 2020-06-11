@@ -17,6 +17,8 @@
         <section class="formulier inloggen">
             <div>
                 <h2>Login</h2>
+                <%- include('includes/sucess-message'); -%>
+                <%- include('includes/error-message'); -%>
                 <form method="POST" action="/login">
                     <fieldset>
                         <legend>Email:</legend>
