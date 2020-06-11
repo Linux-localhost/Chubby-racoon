@@ -11,9 +11,9 @@
 
 <body>
     <section class="fullphoto-person">
-        <img src="./img/photo-melanie.png" alt="Picture user">
+        <img src="./img/photo-users/<%= data.picture %>" alt="Picture user">
         <article class="person-information">
-            <h2>Melanie, 22</h2>
+            <h2><%= data.username %>, <%= data.age %></h2>
             <p>Zaandam</p>
             <p>20km Away from you</p>
             <p class="icons"></p>
@@ -26,9 +26,6 @@
         <%- include('includes/likenav'); -%> <!-- including likenav.ejs-->
     </section>
     </main>
-
-<%- include('includes/footer'); -%> <!-- including footer.ejs-->
-
 </body>
 
 </html>
