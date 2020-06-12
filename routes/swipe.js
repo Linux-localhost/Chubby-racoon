@@ -1,17 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../helper/database');
-const objectId = db.ObjectID;
+const mongodb = require('mongodb');
+const objectId = mongodb.ObjectID;
 
 
 router.get('/swipe', (req, res) => {
   if (req.session.user) {
-    console.log(req.session.user);
     res.render('swipe', {
       data: req.session.user,
     });
   } else res.redirect('/inloggen');
 });
+
 
 // Loops through all the users (Swipe feature)
 let index = 0;
@@ -21,7 +22,6 @@ router.post('/swipe', (req, res) => {
         if (err) {
           console.log(err);
         }
-
         // Pushes all Ids in the array
         const allIds = [];
         for (const x of data) {
@@ -38,15 +38,20 @@ router.post('/swipe', (req, res) => {
         // which button got clicked
         console.log(req.body.liking);
         // console.log(req.body.like-btn);
+        // eslint-disable-next-line max-len
         console.log('The users ID of ' + (data[randomNumber].username) + ' = ' + data[randomNumber]._id);
         index++;
 
-        if (req.body.liking == 0) {
+
+        if (req.body.liking == 1 || req.body.liking == 2) {
+          // let x = [];
+          // x.push(data[randomNumber]._id);
+
           db.get().collection('user').updateOne({
             '_id': objectId(req.session.user._id),
           }, {
-            $set: {
-              'likes': data[randomNumber]._id,
+            $push: {
+              likes: data[randomNumber]._id,
             },
           }, (err, result) => {
             if (err) console.log(err);
