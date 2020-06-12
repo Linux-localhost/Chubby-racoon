@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../helper/database');
+const objectId = db.ObjectID;
 
 
 router.get('/swipe', (req, res) => {
@@ -20,19 +21,42 @@ router.post('/swipe', (req, res) => {
         if (err) {
           console.log(err);
         }
-        const randomNumber = Math.floor(Math.random() * data.length);
 
+        // Pushes all Ids in the array
         const allIds = [];
         for (const x of data) {
           allIds.push(x.id);
         }
 
-        // eslint-disable-next-line max-len
+        if (index === allIds.length) {
+          index = 0;
+        }
+
+        // Calculates a random number for in the array
+        const randomNumber = Math.floor(Math.random() * data.length);
+
+        // which button got clicked
+        console.log(req.body.liking);
+        // console.log(req.body.like-btn);
         console.log('The users ID of ' + (data[randomNumber].username) + ' = ' + data[randomNumber]._id);
         index++;
 
-        if (index === allIds.length) {
-          index = 0;
+        if (req.body.liking == 0) {
+          db.get().collection('user').updateOne({
+            '_id': objectId(req.session.user._id),
+          }, {
+            $set: {
+              'likes': data[randomNumber]._id,
+            },
+          }, (err, result) => {
+            if (err) console.log(err);
+            if (result) {
+              console.log('Gelukt');
+            }
+          });
+          console.log('You pressed the Dislike button');
+        } else {
+          console.log('You pressed the Superlike button or Like button');
         }
 
         res.render('swipe.ejs', {
