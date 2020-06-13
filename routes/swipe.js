@@ -4,18 +4,31 @@ const db = require('../helper/database');
 const mongodb = require('mongodb');
 const objectId = mongodb.ObjectID;
 
-
+const allIds = [];
 router.get('/swipe', (req, res) => {
   if (req.session.user) {
-    console.log(req.session.user);
-    res.render('swipe', {
-      data: req.session.user,
-    });
-  } else res.redirect('/inloggen');
+    db.get().collection('user').find()
+        .toArray(function(err, data) {
+          if (err) console.log(err);
+          for (let i = 0; i < data.length; i++) {
+            allIds.push(data[i]);
+            if (req.session.user._id == data[i]._id) {
+              allIds.splice(i, 1);
+            }
+          }
+          console.log(allIds);
+          res.render('swipe.ejs', {
+            data: allIds[0],
+          });
+        });
+  };
 });
 
+
+
 // Loops through all the users (Swipe feature)
-let index = 0;
+let index = 1;
+
 router.post('/swipe', (req, res) => {
   db.get().collection('user').find()
       .toArray(function(err, data) {
@@ -28,19 +41,9 @@ router.post('/swipe', (req, res) => {
           allIds.push(x.id);
         }
 
-        if (index === allIds.length) {
-          index = 0;
+        if (req.session.user._id == data[index]._id) {
+          console.log('dit ben je zelf');
         }
-
-        // Calculates a random number for in the array
-        const randomNumber = Math.floor(Math.random() * data.length);
-
-        // which button got clicked
-        // console.log(req.body.liking);
-        // console.log(req.body.like-btn);
-        // eslint-disable-next-line max-len
-        // console.log('The users ID of ' + (data[randomNumber].username) + ' = ' + data[randomNumber]._id);
-
         if (req.body.liking == 1 || req.body.liking == 2) {
           // let x = [];
 
@@ -48,7 +51,7 @@ router.post('/swipe', (req, res) => {
             '_id': objectId(req.session.user._id),
           }, {
             $push: {
-              likes: data[randomNumber]._id,
+              likes: data[index]._id,
             },
           }, (err, result) => {
             if (err) console.log(err);
@@ -57,15 +60,20 @@ router.post('/swipe', (req, res) => {
             }
           });
 
-          console.log('You liked ' + data[randomNumber].username + ' ' + data[randomNumber]._id + ' ');
+          console.log('You liked ' + data[index].username + ' ' + data[index]._id + ' ');
         } else {
-          console.log('You disliked ' + data[randomNumber].username + ' ' + data[randomNumber]._id + ' ');
+          console.log('You disliked ' + data[index].username + ' ' + data[index]._id + ' ');
+        }
+        if (index === data.length - 1) {
+          index = 1;
+          console.log('dit is het einde');
         }
 
+        console.log('hoi'+ data.length + index);
         index++;
 
         res.render('swipe.ejs', {
-          data: data[randomNumber],
+          data: data[index],
         });
       });
 });

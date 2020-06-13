@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/notification', (req, res) => {
   res.render('notification.ejs');
 });
 
