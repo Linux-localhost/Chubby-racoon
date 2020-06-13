@@ -1,36 +1,97 @@
+ footer .container {
+   width: 100%;
+   background-color: blueviolet;
+   height: auto;
+   display: flex;
+   margin: 0 auto;
+ }
 
-  /* Create three equal columns that floats next to each other */
-  .column {
-    float: left;
-    width: 30%;
-    padding: 10px;
-    margin-left: 2em;
-    height: 300px; /* Should be removed. Only for demonstration */
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+ footer .col {
+   min-width: 414px;
+   height: auto;
+   box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   padding: 0px 20px 20px 20px;
+ }
 
-  footer {
-      background-color: var(--maincolor);
-  }
+ footer .col h1 {
+   margin: 0;
+   padding: 0;
+   font-family: 'Montserat', sans-serif;
+   font-size: 20px;
+   padding: 20px 0px 5px 0px;
+   color: white;
+   text-align: left;
+ }
 
-  .column h2{
-      font-family: 'Montserat', sans-serif;
-      color: white;
-      padding-top: 10px;
-  }
+ footer .col ul {
+   padding: .5em;
+   text-align: left;
+   list-style: none;
+ }
+
+ footer .col ul li {
+   color: black;
+   font-size: 14px;
+   font-family: inherit;
+   font-weight: bold;
+   padding: 5px 0px 5px 0px;
+   cursor: pointer;
+ }
 
 
+ footer .col ul li a {
+   text-decoration: none;
+   color: black;
 
-.column a {
-    text-decoration: none;
-    color: var(--secondcolor);
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-}
+ }
+
+ footer img {
+   width: 50px;
+   padding-top: .5em;
+   display: block;
+ }
+
+ footer {
+   width: 100%;
+   height: auto;
+   background-color: var(--thirdcolor);
+ }
+
+
+ footer .container {
+   display: flex;
+   background-color: var(--thirdcolor);
+   max-width: 90vw;
+
+
+   flex-wrap: wrap;
+   align-content: center;
+   flex-direction: row;
+   justify-content: center;
+
+   transition: all ease-in .25s;
+ }
+
+ /*--elke box die in de container zit--*/
+ .container .col {
+   min-width: 300px;
+   height: 100%;
+
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   display: flex;
+
+   transition: all ease-in 0.5s;
+ }
+
+ .social ul li {
+   display: inline-block;
+ }
+
+ .footerimg {
+   width: 100%;
+   height: auto;
+ }
