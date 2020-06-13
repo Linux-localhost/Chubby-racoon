@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
     'city': '',
     'characteristics': [],
     'picture': 'stock.png',
-    'likes': {},
+    'likes': [],
   });
   req.flash('succes', 'Your account has been made please log in');
   console.log(`A new user has registered #awesome! : ${req.body.email}`);
