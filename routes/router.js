@@ -28,6 +28,7 @@ const login = require('./log-in');
 const register = require('./register');
 const users = require('./users');
 const swipe = require('./swipe');
+const notification = require('./notification');
 
 
 // Make routes
@@ -36,6 +37,7 @@ router.use('/', login);
 router.use('/', register);
 router.use('/', users);
 router.use('/', swipe);
+router.use('/', notification);
 
 
 module.exports = router;
