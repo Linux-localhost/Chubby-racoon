@@ -21,6 +21,8 @@ router.get('/swipe', (req, res) => {
             data: allIds[0],
           });
         });
+  } else {
+    res.render('inloggen.ejs');
   };
 });
 
