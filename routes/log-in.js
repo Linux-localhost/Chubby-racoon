@@ -8,24 +8,21 @@ router.get('/inloggen', (req, res) => {
 });
 
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   const username = req.body.email.toLowerCase();
   const password = req.body.password;
 
-  db.get().collection('user').findOne({
-    email: username,
-    password: password,
-  }, (err, result) => {
-    if (err) console.log(err);
-    if (result) {
-      req.session.user = result;
-      req.session.save(function(err) {
-        res.redirect('/swipe');
-      });
-    } else {
-      req.flash('error', 'Account not found please try again');
-      res.redirect('/inloggen');
-    }
-  });
+  const validate = await db.get().collection('user').findOne({email: username, password: password});
+
+  if (validate) {
+    req.session.user = validate;
+    req.session.save(function(err) {
+      res.redirect('/swipe');
+      return;
+    });
+  } else {
+    req.flash('error', 'Account not found please try again');
+    res.redirect('/inloggen');
+  }
 });
 module.exports = router;
