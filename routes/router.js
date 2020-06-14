@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
+
 router.use(flash());
 router.use(cookieParser());
 router.use(bodyParser.urlencoded({
@@ -29,6 +30,8 @@ const register = require('./register');
 const users = require('./users');
 const swipe = require('./swipe');
 const notification = require('./notification');
+const verify = require('./verify');
+const resetpassword = require('./reset-password');
 
 
 // Make routes
@@ -38,6 +41,8 @@ router.use('/', register);
 router.use('/', users);
 router.use('/', swipe);
 router.use('/', notification);
+router.use('/', verify);
+router.use('/', resetpassword);
 
 
 module.exports = router;

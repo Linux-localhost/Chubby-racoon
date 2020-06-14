@@ -14,14 +14,14 @@ router.post('/login', async (req, res) => {
 
   const validate = await db.get().collection('user').findOne({email: username, password: password});
 
-  if (validate) {
+  if (validate && !validate.verified) {
     req.session.user = validate;
     req.session.save(function(err) {
       res.redirect('/swipe');
       return;
     });
   } else {
-    req.flash('error', 'Account not found please try again');
+    req.flash('error', 'incorrect or account not verified');
     res.redirect('/inloggen');
   }
 });

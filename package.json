@@ -26,6 +26,7 @@
     "express-router": "0.0.1",
     "express-session": "^1.17.1",
     "mongodb": "^3.5.8",
+    "nodemailer": "^6.4.8",
     "slug": "^3.3.0"
   },
   "devDependencies": {
