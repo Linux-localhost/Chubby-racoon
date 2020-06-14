@@ -27,7 +27,6 @@ router.get('/swipe', (req, res) => {
 });
 
 
-
 // Loops through all the users (Swipe feature)
 let index = 1;
 

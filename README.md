@@ -53,13 +53,13 @@ _[wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki)_
 ## Progress:
 
 - [x] Connection with database
-- [ ] User registration
-- [ ] User login
-- [ ] User sessions
-- [ ] User Dashboard with data
-- [ ] Error messages feedback
-- [ ] Update account information
-- [ ] Delete account
+- [x] User registration
+- [x] User login
+- [x] User sessions
+- [x] Error messages feedback
+- [x] Hashing passwords
+- [x] Email verification
+- [ ] Reset password 
 
 ## Database structure:
 
@@ -69,13 +69,14 @@ _[wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki)_
 | _id               | primary key   | auto-increment             |
 | username          | string        | Rowin                      |
 | email             | string        | rowin_ruizendaal@gmail.com |
-| password          | string        | secret                     |     
+| password          | string        | Hashed secret              |     
 | gender            | string        | female                     |
 | age               | integer       | 22                         |
 | city              | string        | Amsterdam                  |
 | characteristics   | array         | 0:excited 1:happy 2:goddess|
 | picture           | string        | photo-Rowin.png            |
 | likes             | object        | userid: value              |
+| verified          | boolean       | true | false               |
 
 
 
