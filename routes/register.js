@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../helper/database');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
-// Registeren
+
 router.get('/registeren', (req, res) => {
   res.render('registeren.ejs');
 });
@@ -19,7 +21,6 @@ router.post('/register', async (req, res) => {
     res.redirect('/registeren');
     return;
   }
-
   const user = await db.get().collection('user').findOne({email: createEmail});
 
   if (user) {
@@ -27,9 +28,11 @@ router.post('/register', async (req, res) => {
     res.redirect('/registeren');
     return;
   }
+  const passwordHash = await bcrypt.hashSync(req.body.password, saltRounds);
+
   db.get().collection('user').insertOne({
     'username': createUsername,
-    'password': createPassword,
+    'password': passwordHash,
     'email': createEmail,
     'gender': '',
     'age': Math.floor(Math.random() * 30) + 20,
