@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../helper/database');
+const bcrypt = require('bcrypt');
 
 
 router.get('/inloggen', (req, res) => {
@@ -12,9 +13,10 @@ router.post('/login', async (req, res) => {
   const username = req.body.email.toLowerCase();
   const password = req.body.password;
 
-  const validate = await db.get().collection('user').findOne({email: username, password: password});
+  const validate = await db.get().collection('user').findOne({email: username});
+  const compareSalt = await bcrypt.compare(password, validate.password);
 
-  if (validate && !validate.verified) {
+
     req.session.user = validate;
     req.session.save(function(err) {
       res.redirect('/swipe');

@@ -1,31 +1,5 @@
-require('dotenv').config();
-const express = require('express');
-const router = express.Router();
-const db = require('../helper/database');
-const nodemailer = require('nodemailer');
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-});
-
-const mailOptions = {
-  from: process.env.GMAIL_USER,
-  to: '',
-  subject: 'Activation of your account',
-  text: '',
-};
 
 
-// Registeren
 router.get('/registeren', (req, res) => {
   res.render('registeren.ejs');
 });
@@ -43,7 +17,6 @@ router.post('/register', async (req, res) => {
     res.redirect('/registeren');
     return;
   }
-
   const user = await db.get().collection('user').findOne({email: createEmail});
   if (user) {
     req.flash('error', 'Email already exist');
@@ -64,12 +37,7 @@ router.post('/register', async (req, res) => {
     });
     emailtoken = insertuser.ops[0]._id;
   }
-  mailOptions.to = createEmail;
-  mailOptions.text = `Please click the link below http://localhost:3000/verify/${emailtoken}`;
-  transporter.sendMail(mailOptions, function(err, data) {
-    if (err) console.log(err);
-    console.log(`Email sent to: ${mailOptions.to}`);
-    return;
+
   });
   req.flash('succes', `We've sent you an email to verify your account`);
   console.log(`A new user has registered #awesome! : ${req.body.email}`);
