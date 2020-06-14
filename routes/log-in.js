@@ -16,7 +16,10 @@ router.post('/login', async (req, res) => {
   const validate = await db.get().collection('user').findOne({email: username});
   const compareSalt = await bcrypt.compare(password, validate.password);
 
-
+  if (!validate.verified) {
+    req.flash('error', 'incorrect or account not verified');
+    res.redirect('/inloggen');
+  } else if (compareSalt) {
     req.session.user = validate;
     req.session.save(function(err) {
       res.redirect('/swipe');
