@@ -14,29 +14,7 @@
     <!-- including nav.ejs-->
 
     <main>
-        <!--Registeren-->
-        <section class="formulier registreren">
-            <div>
-                <h2>Create account</h2>
-                <%- include('includes/error-message'); -%>
-                <form action=/register method=post>
-                    <fieldset>
-                        <legend>Fullname: *</legend>
-                        <input type="name" id="name" name="name" required>
-                        <legend>Email: *</legend>
-                        <input type="email" id="email" name="email" required>
-                        <legend>Password: *</legend>
-                        <input type="password" id="password" name="password" required>
-                        <legend>Repeat password: *</legend>
-                        <input type="password" id="password" name="password_repeat" required>
-                        <!-- <legend>Confirm</legend> -->
-                        <button type="submit">Registeren</button>
-                        <p>Already have an account?</p>
-                        <a href="inloggen">Login</a>
-                    </fieldset>
-                </form>
-            </div>
-        </section>
+        <%- include('includes/register'); -%>
     </main>
 
     <%- include('includes/footer'); -%>
