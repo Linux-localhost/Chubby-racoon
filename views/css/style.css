@@ -237,6 +237,14 @@ nav .hamburger div {
     min-height: 100vh;
 }
 
+form p {
+    text-align: center;
+}
+
+form a {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
 .formulier::before {
     position: absolute;
     top: 0;

@@ -62,6 +62,7 @@ router.post('/register', async (req, res) => {
       'picture': 'stock.png',
       'likes': [],
       'verified': false,
+      'reqreset': false,
     });
     emailtoken = insertuser.ops[0]._id;
   }
