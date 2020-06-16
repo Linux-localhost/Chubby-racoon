@@ -695,6 +695,7 @@ section.likebar button {
         position: absolute;
         filter: blur(0.5em);
         border-radius: 10px;
+        background-size: cover;
     }
 
 
