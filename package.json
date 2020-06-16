@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Linux-localhost/Chubby-racoon.git"
   },
-  "author": "Mijk Rosa Rowin",
+  "author": "Mike Rosa Rowin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Linux-localhost/Chubby-racoon/issues"
@@ -26,6 +26,7 @@
     "express-flash": "0.0.2",
     "express-router": "0.0.1",
     "express-session": "^1.17.1",
+    "helmet": "^3.23.0",
     "mongodb": "^3.5.8",
     "nodemailer": "^6.4.8",
     "slug": "^3.3.0"
