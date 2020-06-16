@@ -1,0 +1,21 @@
+<section class="formulier inloggen">
+    <div>
+        <h2>Login</h2>
+        <%- include('../includes/sucess-message'); -%>
+        <%- include('../includes/error-message'); -%>
+        <form method="POST" action="/login">
+            <fieldset>
+                <legend>Email:</legend>
+                <input type="email" id="email" name="email"  required>
+                <legend>Password:</legend>
+                <input type="password" id="password" name="password"  required>
+                <!-- <legend>Confirm</legend> -->
+                <button type="submit">Login</button>
+                <p>No account yet?</p>
+                <a href="registeren">Create an account</a>
+                <p>Forgot password?</p>
+                <a href="forgot">Request for change</a>
+            </fieldset>
+        </form>
+    </div>
+</section>

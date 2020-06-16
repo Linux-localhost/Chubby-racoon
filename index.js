@@ -27,14 +27,15 @@ app.use(helmet.contentSecurityPolicy({
 }));
 
 // avoids against clickjackking, it removes the iframes for users.
-app.use(helmet.frameguard({ action:'sameorigin'}));
+app.use(helmet.frameguard({action: 'sameorigin'}));
 // hidePoweredBy removes the header information
 app.disable('x-powered-by');
 // hsts makes sure the website will be run by https
-const sixtyDaysInSeconds = 5184000 // 60 days
+const sixtyDaysInSeconds = 5184000; // 60 days
 app.use(helmet.hsts({
-  maxAge: sixtyDaysInSeconds
-}))
+  maxAge: sixtyDaysInSeconds,
+}));
+
 
 db.connect(() => {
   app.listen(port, () => {
