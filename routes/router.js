@@ -31,6 +31,7 @@ const users = require('./users');
 const swipe = require('./swipe');
 const notification = require('./notification');
 const verify = require('./verify');
+const forgotpassword = require('./forgot-password');
 const resetpassword = require('./reset-password');
 
 
@@ -42,6 +43,7 @@ router.use('/', users);
 router.use('/', swipe);
 router.use('/', notification);
 router.use('/', verify);
+router.use('/', forgotpassword);
 router.use('/', resetpassword);
 
 

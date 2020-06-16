@@ -76,7 +76,7 @@ _[wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki)_
 | characteristics   | array         | 0:excited 1:happy 2:goddess|
 | picture           | string        | photo-Rowin.png            |
 | likes             | object        | userid: value              |
-| verified          | boolean       | true | false               |
+| verified          | boolean       | true or false              |
 
 
 
