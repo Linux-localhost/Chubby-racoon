@@ -5,9 +5,15 @@ const mongodb = require('mongodb');
 const objectId = mongodb.ObjectID;
 
 
-router.get('/introduce', (req, res) => {
-  if (req.session.user) {
+router.get('/introduce', async (req, res) => {
+  const id = req.session.user._id;
+
+  const lookup = await db.get().collection('first-login').findOne({'_id': objectId(id)});
+
+  if (lookup && req.session.user) {
     res.render('introduce.ejs');
+  } else if (!lookup && req.session.user) {
+    res.redirect('/swipe');
   } else {
     res.redirect('/inloggen');
   }
