@@ -12,19 +12,31 @@ router.get('/inloggen', (req, res) => {
 router.post('/login', async (req, res) => {
   const username = req.body.email.toLowerCase();
   const password = req.body.password;
-
+  let compareSalt;
   const validate = await db.get().collection('user').findOne({email: username});
-  const compareSalt = await bcrypt.compare(password, validate.password);
+  const firstlogin = await db.get().collection('first-login').findOne({email: username});
 
-  if (!validate.verified) {
-    req.flash('error', 'incorrect or account not verified');
-    res.redirect('/inloggen');
-  } else if (compareSalt) {
-    req.session.user = validate;
-    req.session.save(function(err) {
-      res.redirect('/swipe');
-      return;
-    });
+  if (validate) {
+    compareSalt = await bcrypt.compare(password, validate.password);
+    if (!validate.verified) {
+      req.flash('error', 'incorrect or account not verified');
+      res.redirect('/inloggen');
+    } else if (compareSalt && firstlogin) {
+      req.session.user = validate;
+      req.session.save(function(err) {
+        res.redirect('/introduce');
+        return;
+      });
+    } else if (compareSalt && !firstlogin) {
+      req.session.user = validate;
+      req.session.save(function(err) {
+        res.redirect('/swipe');
+        return;
+      });
+    } else {
+      req.flash('error', 'incorrect or account not verified');
+      res.redirect('/inloggen');
+    }
   } else {
     req.flash('error', 'incorrect or account not verified');
     res.redirect('/inloggen');

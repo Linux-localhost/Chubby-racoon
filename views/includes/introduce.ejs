@@ -1,0 +1,21 @@
+        <!--Registeren-->
+        <section class="formulier registreren">
+            <div>
+                <h2>Introduce yourself</h2>
+                <%- include('../includes/error-message'); -%>
+                <form action=/signup method=post>
+                    <fieldset>
+                        <legend>Gender *</legend>
+                        <select name="Gender" id="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                          </select>
+                        <legend>Age: *</legend>
+                        <input type="number" id="number" name="Age" required>
+                        <legend>City: *</legend>
+                        <input type="text" id="text" name="City" required>
+                        <button type="submit">Complete my account</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
