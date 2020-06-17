@@ -50,7 +50,7 @@ router.post('/register', async (req, res) => {
     res.redirect('/registeren');
     return;
   } else {
-    const passwordHash = await bcrypt.hashSync(req.body.password, saltRounds);
+    const passwordHash = bcrypt.hashSync(createPassword, saltRounds);
     const insertuser = await db.get().collection('user').insertOne({
       'username': createUsername,
       'password': passwordHash,
@@ -66,6 +66,7 @@ router.post('/register', async (req, res) => {
     });
     emailtoken = insertuser.ops[0]._id;
   }
+  await db.get().collection('first-login').insertOne({'_id': emailtoken, 'email': createEmail});
   mailOptions.to = createEmail;
   mailOptions.text = `Please click the link below http://localhost:3000/verify/${emailtoken}`;
   transporter.sendMail(mailOptions, function(err, data) {

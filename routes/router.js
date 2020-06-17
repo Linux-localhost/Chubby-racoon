@@ -33,6 +33,7 @@ const notification = require('./notification');
 const verify = require('./verify');
 const forgotpassword = require('./forgot-password');
 const resetpassword = require('./reset-password');
+const introduce = require('./introduce');
 
 
 // Make routes
@@ -45,6 +46,7 @@ router.use('/', notification);
 router.use('/', verify);
 router.use('/', forgotpassword);
 router.use('/', resetpassword);
+router.use('/', introduce);
 
 
 module.exports = router;

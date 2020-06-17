@@ -407,6 +407,18 @@ legend {
     color: var(--black);
 }
 
+/* ------------- Formulier meldingen ----------------- */
+
+.error {
+    color: var(--maincolor-second);
+    text-align: center;
+}
+
+.succes {
+    color: var(--secondcolor-second);
+    text-align: center;
+}
+
 /* ------------- Swipe page ----------------- */
 
 section.fullphoto-person {
