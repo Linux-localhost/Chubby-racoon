@@ -42,9 +42,11 @@ router.post('/swipe', (req, res) => {
           allIds.push(x.id);
         }
 
+        // Checks if it's you
         if (req.session.user._id == data[index]._id) {
-          console.log('dit ben je zelf');
+          console.log('This is you');
         }
+        // Sets the superlike to the like
         if (req.body.liking == 1 || req.body.liking == 2) {
           // let x = [];
 
@@ -67,10 +69,10 @@ router.post('/swipe', (req, res) => {
         }
         if (index === data.length - 1) {
           index = 1;
-          console.log('dit is het einde');
+          console.log('This is the end of the list');
         }
 
-        console.log('hoi'+ data.length + index);
+        console.log('You liked number: '+ data.length + index);
         index++;
 
         res.render('swipe.ejs', {
