@@ -8,6 +8,7 @@ const objectId = mongodb.ObjectID;
 router.get('/introduce', async (req, res) => {
   const id = req.session.user._id;
 
+  // eslint-disable-next-line max-len
   const lookup = await db.get().collection('first-login').findOne({'_id': objectId(id)});
 
   if (lookup && req.session.user) {
@@ -23,7 +24,14 @@ router.post('/signup', async (req, res) => {
   const id = req.session.user._id;
   const gender = req.body.Gender;
   const age = req.body.Age;
-  const city = req.body.City.toLowerCase();
+  const city = req.body.City;
+
+  // eslint-disable-next-line max-len
+  if (gender == '' || gender == null || age == '' || age == null || city == '' || city == null) {
+    req.flash('error', 'Please fill in the forms correctly');
+    res.redirect('/introduce');
+    return;
+  }
 
   const updateUser = await db.get().collection('user').updateOne({
     '_id': objectId(id),
