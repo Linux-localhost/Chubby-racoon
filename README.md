@@ -63,6 +63,7 @@ _[wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki)_
 
 ## Database structure:
 
+## user
 
 | Tables            | type          | value                      |
 | -------------     |:-------------:| -----:                     |    
@@ -77,6 +78,12 @@ _[wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki)_
 | picture           | string        | photo-Rowin.png            |
 | likes             | object        | userid: value              |
 | verified          | boolean       | true or false              |
+
+## First login
+| Tables            | type          | value                      |
+| -------------     |:-------------:| -----:                     |    
+| _id               | primary key   | auto-increment             |
+| email             | string        | sample@gmail.com           |
 
 
 

@@ -10,20 +10,17 @@
 </head>
 
 <body>
-    <section class="fullphoto-person">
-        <img src="./img/photo-users/<%= data.picture %>" alt="Picture user">
-        <article class="person-information">
-            <h2><%= data.username %>, <%= data.age %></h2>
-            <p>Zaandam</p>
-            <p>20km Away from you</p>
-            <p class="icons"></p>
-            <div>
-                <p>excited</p>
-                <p>goddess</p>
-                <p>thankful</p>
-            </div>
+    <section class="notification-person">
+        <div></div>
+        <img src="./img/photo-users/photo-melanie.png" alt="Picture user">
+        <article class="notification-information">
+            <h1>It's a Crush!</h1>
+            <h2>Melanie, 21</h2>
         </article>
-        <%- include('includes/likenav'); -%> <!-- including likenav.ejs-->
+        <section class="first-text">
+            <label for="first-text">Be kind:</label>
+            <input type="text" placeholder="Be clever!">
+        </section>
     </section>
     </main>
 </body>

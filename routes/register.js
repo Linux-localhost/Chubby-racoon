@@ -38,6 +38,13 @@ router.post('/register', async (req, res) => {
   const createPassword = req.body.password;
   const createPassword2 = req.body.password_repeat;
 
+  // eslint-disable-next-line max-len
+  if (createUsername == '' || createEmail == '' || createPassword == '' || createUsername == null || createEmail == null || createPassword == null || createPassword2 == null) {
+    req.flash('error', 'Fields are empty');
+    res.redirect('/registeren');
+    return;
+  }
+
   if (createPassword !== createPassword2) {
     req.flash('error', 'Passwords are not the same');
     res.redirect('/registeren');
@@ -50,7 +57,7 @@ router.post('/register', async (req, res) => {
     res.redirect('/registeren');
     return;
   } else {
-    const passwordHash = await bcrypt.hashSync(req.body.password, saltRounds);
+    const passwordHash = bcrypt.hashSync(createPassword, saltRounds);
     const insertuser = await db.get().collection('user').insertOne({
       'username': createUsername,
       'password': passwordHash,
@@ -65,17 +72,19 @@ router.post('/register', async (req, res) => {
       'reqreset': false,
     });
     emailtoken = insertuser.ops[0]._id;
+    // eslint-disable-next-line max-len
+    await db.get().collection('first-login').insertOne({'_id': emailtoken, 'email': createEmail});
+    mailOptions.to = createEmail;
+    mailOptions.text = `Please click the link below http://localhost:3000/verify/${emailtoken}`;
+    transporter.sendMail(mailOptions, function(err, data) {
+      if (err) console.log(err);
+      console.log(`Email sent to: ${mailOptions.to}`);
+      return;
+    });
+    req.flash('succes', `We've sent you an email to verify your account`);
+    console.log(`A new user has registered #awesome! : ${req.body.email}`);
+    res.redirect('/inloggen');
   }
-  mailOptions.to = createEmail;
-  mailOptions.text = `Please click the link below http://localhost:3000/verify/${emailtoken}`;
-  transporter.sendMail(mailOptions, function(err, data) {
-    if (err) console.log(err);
-    console.log(`Email sent to: ${mailOptions.to}`);
-    return;
-  });
-  req.flash('succes', `We've sent you an email to verify your account`);
-  console.log(`A new user has registered #awesome! : ${req.body.email}`);
-  res.redirect('/inloggen');
 });
 
 
