@@ -4,81 +4,64 @@ const db = require('../helper/database');
 const mongodb = require('mongodb');
 const objectId = mongodb.ObjectID;
 
-const allIds = [];
-router.get('/swipe', (req, res) => {
-  if (req.session.user) {
-    db.get().collection('user').find()
-        .toArray(function(err, data) {
-          if (err) console.log(err);
-          for (let i = 0; i < data.length; i++) {
-            allIds.push(data[i]);
-            if (req.session.user._id == data[i]._id) {
-              allIds.splice(i, 1);
-            }
-          }
-          console.log(allIds);
-          res.render('swipe.ejs', {
-            data: allIds[0],
-          });
-        });
-  } else {
-    res.render('inloggen.ejs');
-  };
+
+let index = 0;
+// eerste keer van het laden van de pagina
+router.get('/swipe', async (req, res) => {
+  if (!req.session.user) {
+    res.redirect('/inloggen');
+  }
+  const users = await db
+      .get()
+      .collection('user')
+      .find({_id: {$ne: objectId(req.session.user._id)}})
+      .toArray();
+
+  res.render('./swipe.ejs', {data: users[index]});
 });
 
+// na elke swipe bijhouden
+router.post('/swipe', async (req, res) => {
+  const users = await db
+      .get()
+      .collection('user')
+      .find({_id: {$ne: objectId(req.session.user._id)}})
+      .toArray();
+  index ++;
+  if (index == users.length) {
+    index = 1;
+  }
+  console.log(index);
 
-// Loops through all the users (Swipe feature)
-let index = 1;
+  if (req.body.liking == 1 || req.body.liking == 2) {
+    await db.get().collection('user').updateOne({
+      '_id': objectId(req.session.user._id),
+    }, {
+      $push: {
+        likes: users[index -1]._id,
+      },
+    }, (err, result) => {
+      if (err) console.log(err);
+      if (result) {
+        console.log('Gelukt');
+        console.log('Mission accomplisched');
+      }
+    });
+  } else {
+    // Als je wil kun je hier de dislikes bijhouden
+  }
 
-router.post('/swipe', (req, res) => {
-  db.get().collection('user').find()
-      .toArray(function(err, data) {
-        if (err) {
-          console.log(err);
-        }
-        // Pushes all Ids in the array
-        const allIds = [];
-        for (const x of data) {
-          allIds.push(x.id);
-        }
+  const checklike = await db
+      .get()
+      .collection('user')
+      .find({_id: objectId(users[index -1]._id), likes: [objectId(req.session.user._id)]})
+      .toArray();
 
-        // Checks if it's you
-        if (req.session.user._id == data[index]._id) {
-          console.log('This is you');
-        }
-        // Sets the superlike to the like
-        if (req.body.liking == 1 || req.body.liking == 2) {
-          // let x = [];
+  if (checklike && checklike.length > 0) {
+    console.log(`IT IS A MATCH BETWEEN: ${req.session.user._id} AND ${users[index-1]._id}`);
+  }
 
-          db.get().collection('user').updateOne({
-            '_id': objectId(req.session.user._id),
-          }, {
-            $push: {
-              likes: data[index]._id,
-            },
-          }, (err, result) => {
-            if (err) console.log(err);
-            if (result) {
-              console.log('Mission accomplisched');
-            }
-          });
-
-          console.log('You liked ' + data[index].username + ' ' + data[index]._id + ' ');
-        } else {
-          console.log('You disliked ' + data[index].username + ' ' + data[index]._id + ' ');
-        }
-        if (index === data.length - 1) {
-          index = 1;
-          console.log('This is the end of the list');
-        }
-
-        console.log('You liked number: '+ data.length + index);
-        index++;
-
-        res.render('swipe.ejs', {
-          data: data[index],
-        });
-      });
+  res.render('./swipe.ejs', {data: users[index]});
 });
 
 module.exports = router;
