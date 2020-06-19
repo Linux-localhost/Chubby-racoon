@@ -304,12 +304,6 @@ form a {
     padding: 12px;
 }
 
-/* The input fields need to be gray normally and red if you made a mistake, but it ain't working yet. */
-/* .formulier form input:invalid {
-    border: var(--maincolor) solid 1px;
-} */
-
-
 
 .formulier form p:nth-child(4),
 .registreren div form p {
@@ -320,7 +314,8 @@ form a {
 
 
 .formulier form fieldset button,
-.registreren div form button {
+.registreren div form button,
+.block-button {
     background: var(--maincolor);
     border: none;
     width: 100%;
@@ -335,26 +330,21 @@ form a {
     transition: 0.3s ease;
 }
 
+.block-button {
+    background: var(--secondcolor);
+    color: var(--white);
+}
+
+.block-button:hover {
+    background-color: var(--secondcolor-second);
+    color: var(--white);
+}
+
 .formulier form fieldset button:hover,
 .registreren div form button:hover {
     background: var(--maincolor-second);
 }
-
-.formulier form fieldset a,
-.registreren div form a {
-    /* background: var(--maincolor);
-    border: none;
-    width: 100%;
-    color: var(--white);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: 0.3s ease; */
-
+.text-button {
     width: 100%;
     color: var(--secondcolor);
     text-align: center;
@@ -364,16 +354,9 @@ form a {
     transition: 0.3s ease;
 }
 
-.formulier form fieldset a:hover,
-.registreren div form a:hover {
+.text-button:hover {
     color: var(--secondcolor-second);
 }
-
-/* .formulier form fieldset a:hover,
-.registreren div form a:hover {
-    background: var(--maincolor-second)
-} */
-
 
 
 input[type="text"],
