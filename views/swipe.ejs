@@ -20,13 +20,13 @@
             <img src="./img/photo-users/<%= data.picture %>" alt="Picture user">
             <article class="person-information">
                 <h2><%= data.username %>, <%= data.age %></h2>
-                <p>Zaandam</p>
-                <p>20km Away from you</p>
+                <p><%= data.city %></p>
+                <p>??km Away from you</p>
                 <p class="icons"></p>
                 <div>
-                    <p>excited</p>
-                    <p>goddess</p>
-                    <p>thankful</p>
+                    <p><%= data.characteristics[0] %></p>
+                    <p><%= data.characteristics[1] %></p>
+                    <p><%= data.characteristics[2] %></p>
                 </div>
             </article>
             <!-- including likenav.ejs-->
