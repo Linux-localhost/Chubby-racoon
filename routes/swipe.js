@@ -4,19 +4,21 @@ const db = require('../helper/database');
 const mongodb = require('mongodb');
 const objectId = mongodb.ObjectID;
 
+// picks all id's from database
 const allIds = [];
-router.get('/swipe', (req, res) => {
+router.get('/swipe', function(req, res) {
   if (req.session.user) {
     db.get().collection('user').find()
         .toArray(function(err, data) {
-          if (err) console.log(err);
+          if (err)
+            {console.log(err);}
           for (let i = 0; i < data.length; i++) {
             allIds.push(data[i]);
             if (req.session.user._id == data[i]._id) {
               allIds.splice(i, 1);
             }
           }
-          console.log(allIds);
+          console.log('You are logged in as: ' + data[index].username);
           res.render('swipe.ejs', {
             data: allIds[0],
           });
