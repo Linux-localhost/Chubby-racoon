@@ -16,8 +16,7 @@ router.get('/swipe', async (req, res) => {
       .collection('user')
       .find({_id: {$ne: objectId(req.session.user._id)}})
       .toArray();
-
-  res.render('./swipe.ejs', {data: users[index]});
+  res.render('./swipe.ejs', {data: users[0]});
 });
 
 // na elke swipe bijhouden
@@ -27,11 +26,8 @@ router.post('/swipe', async (req, res) => {
       .collection('user')
       .find({_id: {$ne: objectId(req.session.user._id)}})
       .toArray();
-  index ++;
-  if (index == users.length) {
-    index = 1;
-  }
-  console.log(index);
+  index++;
+  console.log(users[0]);
 
   if (req.body.liking == 1 || req.body.liking == 2) {
     await db.get().collection('user').updateOne({
@@ -44,23 +40,29 @@ router.post('/swipe', async (req, res) => {
       if (err) console.log(err);
       if (result) {
         console.log('Gelukt');
-        console.log('Mission accomplisched');
       }
     });
+    const checklike = await db
+        .get()
+        .collection('user')
+        // eslint-disable-next-line max-len
+        .find({_id: objectId(users[index -1]._id), likes: objectId(req.session.user._id)})
+        .toArray();
+
+    console.log(checklike);
+    if (checklike && checklike.length > 0) {
+      // eslint-disable-next-line max-len
+      console.log(`IT IS A MATCH BETWEEN: ${req.session.user._id} AND ${users[index-1]._id}`);
+    }
   } else {
     // Als je wil kun je hier de dislikes bijhouden
   }
 
-  const checklike = await db
-      .get()
-      .collection('user')
-      .find({_id: objectId(users[index -1]._id), likes: [objectId(req.session.user._id)]})
-      .toArray();
-
-  if (checklike && checklike.length > 0) {
-    console.log(`IT IS A MATCH BETWEEN: ${req.session.user._id} AND ${users[index-1]._id}`);
+  console.log(users.length + 'Dit is de lengte');
+  if (index == users.length) {
+    console.log('dit is het einde');
+    index = 0;
   }
-
   res.render('./swipe.ejs', {data: users[index]});
 });
 
