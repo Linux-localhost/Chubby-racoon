@@ -2,6 +2,9 @@
 
 > Hi, welcome to our repository here you can find our source code for our dating app! We will be making a dating app. This dating app is programmed in node.js
 
+## Our App - TheRelationShip
+The app we have created is a new dating app for people who seek love. It can be used on your phone or desktop browser and is easy to use. Users can dislike, like or extra like someone and start a conversation with them if they like them back. 
+
 ## Team
 
 Mike Hovenier
@@ -16,6 +19,29 @@ Rowin Danilo Ruizendaal
 
 _[Primary](https://github.com/rowinruizendaal)_  ||  _[Secondary](https://github.com/linux-localhost)_ 
 
+## Features
+
+The first feature you'll come across is the **register/log in** feature developed by Rowin. You'll be able to create an account and start your dating journey. Everyone you like and talk with will be stored in our database under your account and when you come back to log in again all of your data will still be there for you to access and continue!
+
+The next feature is **swiping**, developed by Mike. Whenever you like or dislike someone this will be saved in our database and we'll show you the next person you could like or dislike. All of these people will be saved and if they like you back you'llbe considered a match.
+
+The final feature was going to be a **filter** feature that you could apply in your settings. You could select your prefered age, gender and distance to filter people who fit into your preferences. However, Rosa was sadly not able to make it work.
+
+See our [Wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki) for more information.
+
+## Topics
+
+### Deployment
+To deploy our website Rosa did some research about which service to use and decided on Heroku.
+She installed Heroku with some help from Rowin and you can see our app live on https://the-relation-ship.herokuapp.com/
+
+For a more detailed explaination on Heroku, check out our [Wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki/topic-deployment).
+
+### Hashing
+
+### Helmet
+
+### Routing
 
 ## Live demo
 Coming soon
