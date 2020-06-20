@@ -153,6 +153,12 @@ nav .hamburger div {
     font-family: 'Montserrat', sans-serif;
 }
 
+.logo img {
+    width: 200px;
+    height: auto;
+    -webkit-filter: drop-shadow(5px 5px 5px var(--black));
+    filter: drop-shadow(5px 5px 5px var(--black));
+}
 
 .cta {
     position: relative;
@@ -515,6 +521,15 @@ section.notification-person label {
     text-shadow: 1px 3px 6px rgb(51, 51, 51, 0.6);
 }
 
+.notification-person span a {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    fill: var(--white);
+}
+
 /* ------------- Likenav ----------------- */
 
 section.likebar {
@@ -663,9 +678,7 @@ footer p {
         filter: blur(0.5em);
         border-radius: 10px;
         background-size: cover;
-    }
-
-
+}
 
 /* ------------- Media-query ----------------- */
 
