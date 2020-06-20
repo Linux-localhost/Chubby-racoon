@@ -153,6 +153,12 @@ nav .hamburger div {
     font-family: 'Montserrat', sans-serif;
 }
 
+.logo img {
+    width: 200px;
+    height: auto;
+    -webkit-filter: drop-shadow(5px 5px 5px var(--black));
+    filter: drop-shadow(5px 5px 5px var(--black));
+}
 
 .cta {
     position: relative;
@@ -515,6 +521,15 @@ section.notification-person label {
     text-shadow: 1px 3px 6px rgb(51, 51, 51, 0.6);
 }
 
+.notification-person span a {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    fill: var(--white);
+}
+
 /* ------------- Likenav ----------------- */
 
 section.likebar {
@@ -630,6 +645,39 @@ footer p {
     margin-top: 10px;
     background-color: var(--maincolor);
     color: var(--white);
+}
+
+/* ------------- No-matches ---------------- */
+
+.nomatches {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    box-shadow: 0 0 10px #000000;
+    padding: 1.5em;
+}
+
+.nomatches h1 {
+    color: var(--black);
+    text-align: center;
+}
+
+.nomatches a {
+    margin-top: 50px;
+}
+
+.background-nomatches {
+        width: 100%;
+        height: 100%;
+        background: url(../img/background.png) no-repeat;
+        background-position: center center;
+        display: block;
+        position: absolute;
+        filter: blur(0.5em);
+        border-radius: 10px;
+        background-size: cover;
 }
 
 /* ------------- Media-query ----------------- */

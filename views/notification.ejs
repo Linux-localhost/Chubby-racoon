@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="./img/favi-icon.png"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./img/favi-icon.png" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <title>Dating app | You have a match</title>
 </head>
 
 <body>
+    <main>
     <section class="notification-person">
         <div></div>
-        <img src="./img/photo-users/photo-melanie.png" alt="Picture user">
+        <span><a href="/swipe">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 74 73.5"
+                xml:space="preserve">
+                <path
+                    d="M69.5 4.6c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5L54 37.2l15.5 15.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.3 2.3-5.1 3.5-8.5 3.5-3.4 0-6.2-1.2-8.5-3.5L37 54.1 21.4 69.7c-2.3 2.3-5.1 3.5-8.5 3.5-3.4 0-6.2-1.2-8.5-3.5C2 67.3.8 64.5.8 61.2s1.2-6.1 3.6-8.5L20 37.2 4.5 21.6C2.1 19.2.9 16.4.9 13.1S2.1 7 4.5 4.6C6.8 2.2 9.6 1 12.9 1c3.4 0 6.2 1.2 8.5 3.6L37 20.2 52.5 4.6C54.8 2.2 57.6 1 61 1c3.4 0 6.2 1.2 8.5 3.6z" />
+            </svg></a>
+        </span>
+        <img src="./img/photo-users/<%= data.picture %>" alt="Picture user">
         <article class="notification-information">
             <h1>It's a Crush!</h1>
-            <h2>Melanie, 21</h2>
+            <h2><%= data.username %>, <%= data.age %></h2>
         </article>
         <section class="first-text">
             <label for="first-text">Be kind:</label>
