@@ -39,7 +39,7 @@ For a more detailed explaination on Heroku, check out our [Wiki](https://github.
 
 ### Hashing
 Hashing passwords is a must have for back-end, with hashing we can encrypt the passwords, wich makes it a bit safer to use, We used bycrpt. 
-For a more detailed explaination on Heroku, check out our [Wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki/topic-hashing).
+For a more detailed explaination, check out our [Wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki/topic-hashing).
 
 ### Helmet
 
