@@ -5,6 +5,10 @@
 ## Our App - TheRelationShip
 The app we have created is a new dating app for people who seek love. It can be used on your phone or desktop browser and is easy to use. Users can dislike, like or extra like someone and start a conversation with them if they like them back. 
 
+![Login](https://raw.githubusercontent.com/wiki/Linux-localhost/Chubby-racoon/images/login.png)
+![Swipe](https://raw.githubusercontent.com/wiki/Linux-localhost/Chubby-racoon/images/swipe.png)
+![Notification](https://raw.githubusercontent.com/wiki/Linux-localhost/Chubby-racoon/images/match.png)
+
 ## Team
 
 Mike Hovenier
