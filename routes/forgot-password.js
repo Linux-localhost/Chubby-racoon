@@ -32,7 +32,7 @@ router.get('/forgot', (req, res) => {
 
 
 router.post('/reset', async (req, res) => {
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const lookup = await db.get().collection('user').findOne({
     email: email,
   });

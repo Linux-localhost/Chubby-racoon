@@ -21,11 +21,10 @@ router.post('/login', async (req, res) => {
     return;
   }
 
-
+  username = username.toLowerCase();
   const validate = await db.get().collection('user').findOne({email: username});
   // eslint-disable-next-line max-len
   const firstlogin = await db.get().collection('first-login').findOne({email: username});
-  username = username.toLowerCase();
   if (validate) {
     compareSalt = await bcrypt.compare(password, validate.password);
     if (!validate.verified) {
