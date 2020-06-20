@@ -42,6 +42,8 @@ Hashing passwords is a must have for back-end, with hashing we can encrypt the p
 For a more detailed explaination, check out our [Wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki/topic-hashing).
 
 ### Helmet
+Helmet is a package that helps you secure your Express apps by setting various HTTP headers. It's a collection of 11 middle-ware funtions to help set some HTTP response headers. This will try to protect your application.
+[Wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki/topic-helmet).
 
 ### Routing
 Routing makes it a lot easier for everyone to code in seperate files, no long files anymore. We split up our code to make it much cleaner.
@@ -49,7 +51,7 @@ Routing makes it a lot easier for everyone to code in seperate files, no long fi
 
 
 ## Live demo
-Coming soon
+[TheRelationShip dating-app](https://the-relation-ship.herokuapp.com/).
 
 ## Build Setup
 
