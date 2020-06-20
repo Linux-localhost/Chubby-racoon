@@ -17,6 +17,10 @@ router.get('/swipe', async (req, res) => {
       .find({_id: {$ne: objectId(req.session.user._id)}})
       .toArray();
 
+  if (index == users.length) {
+    index = 0;
+  }
+
   console.log('You are logged in as: ' + req.session.user.username);
   res.render('./swipe.ejs', {data: users[index]});
 });
@@ -56,6 +60,8 @@ router.post('/swipe', async (req, res) => {
       // eslint-disable-next-line max-len
       console.log(`You have a match with: ` + `${users[index-1].username}` + ' ' + `${users[index-1]._id}`);
       res.render('./notification.ejs', {data: users[index -1]});
+      console.log(index + ' index');
+      return;
     }
     // if you disliked(0) that person, it will be saved
   } else {
@@ -78,8 +84,10 @@ router.post('/swipe', async (req, res) => {
     console.log('There are no new matches coming, you have reached the end');
     index = 0;
     res.render('./nomatches.ejs', {data: users[index]});
+    return;
   }
   res.render('./swipe.ejs', {data: users[index]});
+  return;
 });
 
 module.exports = router;
