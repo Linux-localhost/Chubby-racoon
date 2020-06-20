@@ -76,7 +76,8 @@ router.post('/register', async (req, res) => {
     // eslint-disable-next-line max-len
     await db.get().collection('first-login').insertOne({'_id': emailtoken, 'email': createEmail});
     mailOptions.to = createEmail;
-    mailOptions.text = `Please click the link below http://localhost:3000/verify/${emailtoken}`;
+    // mailOptions.text = `Please click the link below http://localhost:3000/verify/${emailtoken}`;
+    mailOptions.text = `Please click the link below https://the-relation-ship.herokuapp.com/verify/${emailtoken}`;
     transporter.sendMail(mailOptions, function(err, data) {
       if (err) console.log(err);
       console.log(`Email sent to: ${mailOptions.to}`);

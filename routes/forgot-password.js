@@ -46,7 +46,8 @@ router.post('/reset', async (req, res) => {
       },
     });
     mailOptions.to = email;
-    mailOptions.text = `Please click the link below http://localhost:3000/reset/${id}`;
+    // mailOptions.text = `Please click the link below http://localhost:3000/reset/${id}`;
+    mailOptions.text = `Please click the link below https://the-relation-ship.herokuapp.com/reset/${id}`;
     transporter.sendMail(mailOptions, function(err, data) {
       if (err) console.log(err);
       console.log(`Email sent to: ${mailOptions.to}`);
