@@ -149,13 +149,13 @@ Junior Developer Central. (2019a, July 1). NodeJS Essentials 33: Express Session
 
 Junior Developer Central. (2019b, July 9). NodeJS Essentials 38: Flash Messages. Retrieved May 30, 2020, from https://www.youtube.com/watch?v=BX-SmHfM1M8
 
+Moffat, M. (2018, April 19). Nodejs - Re-use MongoDB database connection in routes. Retrieved June 9, 2020, from https://mrvautin.com/re-use-mongodb-database-connection-in-routes/
+
 Mongodb. (n.d.). MongoDB Node.js Driver. Retrieved May 30, 2020, from https://docs.mongodb.com/drivers/node
 
 mongodb. (n.d.). Queries — MongoDB Node.JS Driver 1.4.9 documentation. Retrieved May 30, 2020, from https://mongodb.github.io/node-mongodb-native/markdown-docs/queries.html
 
 Mongodb not updating. (2018, February 14). Retrieved May 31, 2020, from https://stackoverflow.com/questions/48789321/mongodb-not-updating
-
-Moffat, M. (2018, April 19). Nodejs - Re-use MongoDB database connection in routes. Retrieved June 9, 2020, from https://mrvautin.com/re-use-mongodb-database-connection-in-routes/
 
 Node - connect-flash not working on redirect. (2017, January 9). Retrieved May 30, 2020, from https://stackoverflow.com/questions/41558884/node-connect-flash-not-working-on-redirect
 
