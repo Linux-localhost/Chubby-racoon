@@ -56,6 +56,7 @@ router.post('/swipe', async (req, res) => {
       // eslint-disable-next-line max-len
       console.log(`You have a match with: ` + `${users[index-1].username}` + ' ' + `${users[index-1]._id}`);
       res.render('./notification.ejs', {data: users[index -1]});
+      return;
     }
     // if you disliked(0) that person, it will be saved
   } else {
@@ -78,6 +79,7 @@ router.post('/swipe', async (req, res) => {
     console.log('There are no new matches coming, you have reached the end');
     index = 0;
     res.render('./nomatches.ejs', {data: users[index]});
+    return;
   }
   res.render('./swipe.ejs', {data: users[index]});
 });
