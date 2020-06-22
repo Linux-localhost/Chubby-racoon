@@ -9,6 +9,9 @@ The app we have created is a new dating app for people who seek love. It can be 
 ![Swipe](https://raw.githubusercontent.com/wiki/Linux-localhost/Chubby-racoon/images/swipe.png)
 ![Notification](https://raw.githubusercontent.com/wiki/Linux-localhost/Chubby-racoon/images/match.png)
 
+## Live demo
+[TheRelationShip dating-app](https://the-relation-ship.herokuapp.com/).
+
 ## Team
 
 Mike Hovenier
@@ -53,9 +56,6 @@ Helmet is a package that helps you secure your Express apps by setting various H
 Routing makes it a lot easier for everyone to code in seperate files, no long files anymore. We split up our code to make it much cleaner.
 [Wiki](https://github.com/Linux-localhost/Chubby-racoon/wiki/topic-routing).
 
-
-## Live demo
-[TheRelationShip dating-app](https://the-relation-ship.herokuapp.com/).
 
 ## Build Setup
 
