@@ -24,17 +24,17 @@ router.use(
 );
 
 // Pages required
-const homepage = require('./index');
-const login = require('./log-in');
-const register = require('./register');
-const users = require('./users');
-const swipe = require('./swipe');
-const notification = require('./notification');
-const nomatches = require('./nomatches');
-const verify = require('./verify');
-const forgotpassword = require('./forgot-password');
-const resetpassword = require('./reset-password');
-const introduce = require('./introduce');
+const homepage = require('./src/index');
+const login = require('./src/log-in');
+const register = require('./src/register');
+const users = require('./src/users');
+const swipe = require('./src/swipe');
+const notification = require('./src/notification');
+const nomatches = require('./src/nomatches');
+const verify = require('./src/verify');
+const forgotpassword = require('./src/forgot-password');
+const resetpassword = require('./src/reset-password');
+const introduce = require('./src/introduce');
 
 
 // Make routes

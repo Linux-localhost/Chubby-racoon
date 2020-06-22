@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../helper/database');
+const db = require('../../helper/database');
 const mongodb = require('mongodb');
 const objectId = mongodb.ObjectID;
 const bcrypt = require('bcrypt');
