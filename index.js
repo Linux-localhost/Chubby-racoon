@@ -48,6 +48,11 @@ app.use(helmet({
   // reffererPolicy by default off
 }));
 
+app.use(function(req, res, next) {
+  res.status(404);
+  res.render('index.ejs');
+});
+
 db.connect(() => {
   app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);

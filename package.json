@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "nodemon": "npx nodemon",
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "npx eslint.js",
+    "start-dev": "nodemon --exec \"npm run lint && node index\""
   },
   "repository": {
     "type": "git",
