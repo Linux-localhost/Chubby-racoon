@@ -271,7 +271,7 @@ form a {
 }
 
 
-.formulier div {
+.formulier div:nth-child(1) {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -680,6 +680,35 @@ footer p {
     border-radius: 10px;
     background-size: cover;
 }
+
+
+/* ------------- Show passwords | hide ----------------- */
+.formulier div:nth-child(4) {
+    display: flex;
+    
+}
+#toggle {
+    background-image: url('../img/password/eye.png');
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    margin-top: 20px;
+    margin-right: -20px;
+}
+
+#toggle.hide {
+    background-image: url('../img/password/hide.PNG');
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    margin-top: 20px;
+}
+
+.formulier form fieldset button:nth-child(5):disabled {
+    opacity: 40%;
+    cursor: default;
+    transition: 0.3s ease;
+}
 /* ------------- Media-query ----------------- */
 
 @media screen and (min-width: 768px) {
@@ -746,7 +775,7 @@ footer p {
         background-position: calc(20% - 0px) calc(25% - 10px);
     }
 
-    .formulier div {
+    .formulier div:nth-child(1) {
         /* height: 26em; */
         width: 40%;
         background: var(--white);

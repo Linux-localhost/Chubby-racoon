@@ -6,10 +6,12 @@
         <form method="POST" action="/login">
             <fieldset>
                 <legend>Email:</legend>
-                <input type="email" id="email" name="email"  required>
+                <input type="email" id="email" name="email" required>
                 <legend>Password:</legend>
-                <input type="password" id="password" name="password"  required>
-                <!-- <legend>Confirm</legend> -->
+                <div>
+                    <input type="password" id="password" name="password" required>
+                    <span id="toggle"></span>
+                </div>
                 <button type="submit">Login</button>
                 <p>No account yet?</p>
                 <a href="registeren" class="block-button">Create an account</a>

@@ -10,9 +10,9 @@ app.use(require('./routes/router'));
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
-app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('views', 'public');
 
 // call Helmet
 app.use(helmet());
