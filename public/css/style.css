@@ -270,6 +270,12 @@ form a {
     z-index: -1;
 }
 
+.new {
+    background: url('https://lh3.googleusercontent.com/G5oF0mhpOcQzFTrU6TDUL0JoAjzRt38weiZKua7L61WVT1z3dPcE9gUu-W2EwtM9cZU') no-repeat center center /cover;
+    content: attr(data-before);
+}
+
+
 
 .formulier div:nth-child(1) {
     position: absolute;
