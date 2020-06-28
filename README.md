@@ -9,6 +9,9 @@ The app we have created is a new dating app for people who seek love. It can be 
 ![Swipe](https://raw.githubusercontent.com/wiki/Linux-localhost/Chubby-racoon/images/swipe.png)
 ![Notification](https://raw.githubusercontent.com/wiki/Linux-localhost/Chubby-racoon/images/match.png)
 
+## API
+This features uses the [Unsplash API](https://unsplash.com/developers) & this feature uses: [openweather API](https://openweathermap.org/api).
+
 ## Live demo
 [TheRelationShip dating-app](https://the-relation-ship.herokuapp.com/).
 
