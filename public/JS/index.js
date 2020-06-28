@@ -43,9 +43,9 @@ function weatherBalloon(cityID) {
 
 const array = [];
 const searchTerms = {
-  Winter: 'winter date',
-  Summer: 'Summer date',
-  Autum: 'Autumn walk',
+  Winter: 'winter kiss',
+  Summer: 'Summer kiss',
+  Autum: 'Autumn kiss',
 };
 
 async function drawWeather(d) {
@@ -56,17 +56,17 @@ async function drawWeather(d) {
     await SearchPhotos(searchTerms.Summer);
     const pickRandom = Math.floor(Math.random() * array.length);
     // eslint-disable-next-line quotes
-    image.pseudoStyle("before", "background", "url(" + array[pickRandom] + ") no-repeat center center /cover");
+    image.pseudoStyle('before', 'background', 'url(' + array[pickRandom] + ') no-repeat center center /cover');
   } else if (celcius > 10 && celcius < 12) {
     await SearchPhotos(searchTerms.Autum);
     // eslint-disable-next-line quotes
     const pickRandom = Math.floor(Math.random() * array.length);
-    image.pseudoStyle("before", "background", "url(" + array[pickRandom] + ") no-repeat center center /cover");
+    image.pseudoStyle('before', 'background', 'url(' + array[pickRandom] + ') no-repeat center center /cover');
   } else {
-    await SearchPhotos(searchTerms.Autum);
+    await SearchPhotos(searchTerms.Winter);
     // eslint-disable-next-line quotes
     const pickRandom = Math.floor(Math.random() * array.length);
-    image.pseudoStyle("before", "background", "url(" + array[pickRandom] + ") no-repeat center center /cover");
+    image.pseudoStyle('before', 'background', 'url(' + array[pickRandom] + ') no-repeat center center /cover');
   }
 }
 

@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
-app.set('views', 'public');
+app.set('views', 'view');
 
 // call Helmet
 app.use(helmet());
