@@ -32,7 +32,7 @@
     "frameguard": "^3.1.0",
     "helmet": "^3.23.0",
     "mongodb": "^3.5.8",
-    "nodemailer": "^6.4.8",
+    "nodemailer": "^6.4.16",
     "slug": "^3.3.0"
   },
   "devDependencies": {
